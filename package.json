@@ -1,5 +1,5 @@
 {
-  "name": "employee-management-system",
+  "name": "employee_management_system",
   "version": "1.0.0",
   "description": "A content management system that allows the user to track and analyze company departments, empolyees, and their roles.",
   "main": "server.js",
@@ -10,7 +10,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+    "test": "echo \\\"Error: no test specified\\\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
