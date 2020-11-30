@@ -5,15 +5,29 @@
   ## Table of Contents
   * [Demo](#demo)
   * [Installation](#installation)
+  * [Future Development](#futureDevelopment)
   * [Developer's Information](#devInfo)
   * [Credientials](#credientials)
   * [License](#license)
   
   ## <a name="demo"></a>Demo
-  (provide in post)
-  ![]()
+  A video walking through this project can be found [here](https://youtu.be/gGTnU9_07uo) 
+  <br>
+  This app can be ran after following installation instructions by using 'node server.js' in your terminal. 
+  
+  ![](Assets/demo.gif)
   ## <a name="installation"></a>Installation
-  (provide in post)
+  To initiate this project, download the Zip file to your computer, extract, and open up the folder in VSCode. Copy, paste, and run the code from "employeeManagement.sql" to create the database, and do the same with "seed.sql" if you would like starter code.
+
+  Open up your terminal and run npm install to receive all packages required for this application.
+
+  ## <a name="futureDevelopment"></a>Future Development
+  Currently, this application allows the user to view and add Departments, Roles, and Employees. The user is also given an "Exit Application" prompt. 
+  
+  To further enhance this application, functionality to the add roles and employees features could be extended by allowing the user to select the roles from a list when adding an Employee, and also by allowing the user to select departments from a list when adding new Roles.
+
+  In addition, deleting Departments, Roles, and Employees would be the next ideal step for this application. Giving each employee a manager feature, and allowing the user to view the manager's current employee responsibility would be another ideal feature. 
+
   ## <a name="devInfo"></a>Developer's Information
   Feel free to contact me using the information below if you have any questions or feedback!
   <br>
@@ -23,7 +37,21 @@
   <br>
   Email: <beeson@gmail.com>
   ## <a name="credientials"></a>Credientials
-  (provide in post)
+  https://www.npmjs.com/package/mysql
+
+  https://www.npmjs.com/package/inquirer/v/0.2.3
+
+  https://www.npmjs.com/package/console.table
+
+  https://docs.npmjs.com/creating-a-package-json-file
+
+  Web Dev Simplified: https://www.youtube.com/watch?v=p3qvj9hO_Bo&t=317s
+
+  Random Name Generator: http://random-name-generator.info/index.php?n=10&g=1&st=3
+
+  https://www.w3schools.com/js/js_object_constructors.asp
+
+
   ## <a name="license"></a>License
   MIT License
 

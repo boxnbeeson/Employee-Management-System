@@ -31,8 +31,6 @@ function runEMS() {
             "Add Employee",
             "Add Department",
             "Add Role",
-            "Update Employee Role",
-            "Update Employee Manager",
             "Exit Application",
         ]
     }).then(function(answer) {
@@ -89,7 +87,7 @@ function runEMS() {
 }
 
 function viewDepartments() {
-    connection.query("SELECT department_name FROM departments", 
+    connection.query("SELECT id,department_name FROM departments", 
     function(err, res) {
         console.table(res);
         runEMS();
@@ -136,25 +134,84 @@ function viewEmployeesByRole() {
 };
 
 function addEmployee() {
-
+    const questionsAboutNewEmployee = 
+    [{
+        type: "input",
+        name: "firstName",
+        message: "What is the employee's first name?",
+    },
+    {
+        type: "input",
+        name: "lastName",
+        message: "What is the employee's last name?",
+    },
+    {
+        type: "input",
+        name: "roleNumber",
+        message: "What is the employee's role id number? (Roles may be viewed from the initial screen. If number is unknown, you may update the employee's role number later.)"
+    }]
+    inquirer.prompt(questionsAboutNewEmployee).then(data =>
+        connection.query("INSERT INTO employees SET ?",
+        {
+            first_name: data.firstName,
+            last_name: data.lastName,
+            role_id: data.roleNumber
+        },
+        function(err, res) {
+            console.log("Employee Added!");
+            runEMS();
+        })
+    );
 };
 
 function addDepartment() {
-
+    inquirer.prompt({
+        type: "input",
+        name: "departmentName",
+        message: "What is the new department's name?",
+    }).then(data =>
+    connection.query("INSERT INTO departments SET ?",
+    {
+        department_name: data.departmentName,
+    },
+    function(err, res) {
+        console.log("Department Added!");
+        runEMS();
+    }));
 };
 
 function addRole() {
-
-};
-
-function updateEmployeeManager() {
-
-};
-
-function updateEmployeeManager() {
-    
+    const questionsAboutNewRole = 
+    [{
+        type: "input",
+        name: "roleTitle",
+        message: "What is the role's title?",
+    },
+    {
+        type: "input",
+        name: "roleSalary",
+        message: "What is the role's salary?",
+    },
+    {
+        type: "input",
+        name: "departmentId",
+        message: "What is the Id number for the department this role will be in? (Departments may be viewed from the initial screen. If number is unknown, you may update the role's department number later."
+    }]
+    inquirer.prompt(questionsAboutNewRole).then(data =>
+        connection.query("INSERT INTO roles SET ?",
+        {
+            role_title: data.roleTitle,
+            role_salary: data.roleSalary,
+            department_id: data.departmentId
+        },
+        function(err, res) {
+            console.log("Role Added!");
+            runEMS();
+        })
+    );
 };
 
 function exitApplication() {
-
+    console.log('Goodbye!')
+    console.log("Use CTRL + C to exit the application.")
 };
